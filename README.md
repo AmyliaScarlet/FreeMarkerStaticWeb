@@ -1,2 +1,2 @@
-# FreeMarketStaticWeb
-a FreeMarket demo. make web static
+# FreeMarkerStaticWeb
+a FreeMarker demo. make web static
