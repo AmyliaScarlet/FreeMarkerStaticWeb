@@ -1,0 +1,17 @@
+spring:
+  servlet:
+    multipart:
+      enabled: false
+  freemarker:
+    allow-request-override: false
+    cache: false
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    suffix=: ftl
+    template-loader-path: D:\IdeaProjects\FreeMarker\src\main\resources\page
+
+server:
+  port: 22744
+
+

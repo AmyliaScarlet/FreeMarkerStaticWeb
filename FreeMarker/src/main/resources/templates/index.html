@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>FreeMarker</title>
+    <script src="/js/jquery-1.11.2.js" type="application/javascript"></script>
+    <script type="application/javascript">
+        function setFM() {
+            var tname = $("#tname").val();
+            var params = $("#params").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/Set",
+                data: {"tname":tname,"params":params},
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    $("#webpage").attr("src","/page/wait.html");
+
+                    setTimeout(function () {
+                        var randomnumber=Math.floor(Math.random()*100000);
+                        $("#webpage").attr("src","/page/"+tname+".html?rd="+randomnumber);
+                    },3000);
+
+
+                }
+            });
+
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+
+</head>
+<body>
+
+<div>
+    <h3>Index</h3>
+    <span>模板名：<input type="text" id="tname" name="tname" value="" /></span><br>
+    <span>参数：<input type="text" id="params" name="params" value="" /></span><br/>
+
+    <input type="button" id="setFM" name="setFM" onclick="setFM();" value="设置模板" />
+
+    <br/>
+    <iframe id="webpage" src="/page/main.html" width="800" height="600" ></iframe>
+</div>
+
+</body>
+</html>
